@@ -1,0 +1,442 @@
+{
+  "recipients": [
+    {
+      "id": "rec-87kb9cftr",
+      "name": "izak",
+      "email": "izakshuvo@gmail.com",
+      "enabled": true,
+      "addedAt": "2026-06-28T09:28:43.779Z"
+    }
+  ],
+  "facebookConfig": {
+    "pageName": "AI Daily Digest",
+    "pageId": "109283749582739",
+    "accessToken": "EAAdBcbC1...XYZ",
+    "connected": false,
+    "status": "unconfigured"
+  },
+  "gmailConfig": {
+    "emailAddress": "mahadeeh38@gmail.com",
+    "connected": true,
+    
+    "status": "active"
+  },
+  "systemConfig": {
+    "setupWizardCompleted": true,
+    
+    "openaiApiKey": "",
+    "emailSenderAddress": "mahadeeh38@gmail.com",
+    "autoRetryCount": 3,
+    "sendErrorAlerts": true,
+    "automationEnabled": true
+  },
+  "scheduleConfig": {
+    "cron": "57 8 * * *",
+    "time": "08:57",
+    "enabled": true,
+    "timezone": "Asia/Dhaka",
+    "nextRunAt": "2026-06-30T02:57:00.470Z",
+    "lastRunAt": "2026-06-29T02:57:54.470Z"
+  },
+  "jobs": [
+    {
+      "id": "job-1",
+      "date": "2026-06-26T09:27:54.994Z",
+      "status": "completed",
+      "progress": 100,
+      "logs": [
+        "Initialize scheduled cron run at 7:00 AM UTC",
+        "Fetching stories from target feeds: OpenAI, DeepMind, Anthropic, TechCrunch, MIT Tech Review",
+        "Scraped 12 candidate stories from AI news channels",
+        "Scoring candidates based on citation rate, significance metrics, and social media traction",
+        "Selected Top 3 stories for video scripting: 1) OpenAI released GPT-4o Realtime API 2) DeepMind AlphaFold-3 Open Source release 3) Anthropic Claude 3.5 Sonnet Artifacts desktop app",
+        "Fulfilling prompt parameters in Gemini LLM for structured newsletter & voice script",
+        "Generating text-to-speech audio segments with Kore voice synthesize template",
+        "Fetching modern graphics with Unsplash API integration",
+        "Assembling canvas layouts & vertical frames (1080x1920)",
+        "Successfully dispatched newsletter email to 2 active subscribers via SendGrid pipeline",
+        "Publishing video update to Facebook Graph API page \"AI Daily Digest\"",
+        "Facebook Post Completed with PostID: fb_9812739812739",
+        "Automation completed smoothly in 42 seconds"
+      ],
+      "newsCollected": [
+        {
+          "id": "n1",
+          "title": "OpenAI Releases Realtime API in Public Beta",
+          "source": "OpenAI Blog",
+          "url": "https://openai.com",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "OpenAI has opened the public beta of its Realtime API, enabling developer access to low-latency multi-modal audio responses.",
+          "noveltyScore": 9,
+          "industryImpact": 9,
+          "citations": 8,
+          "engagement": 9,
+          "totalScore": 35
+        },
+        {
+          "id": "n2",
+          "title": "AlphaFold 3 Code is Now Openly Available",
+          "source": "Google DeepMind",
+          "url": "https://deepmind.google",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "Google DeepMind has released the full source code and weights of AlphaFold 3 for academic research, boosting drug discovery efforts.",
+          "noveltyScore": 10,
+          "industryImpact": 10,
+          "citations": 10,
+          "engagement": 9,
+          "totalScore": 39
+        },
+        {
+          "id": "n3",
+          "title": "Anthropic Launches Claude 3.5 Desktop App",
+          "source": "Anthropic News",
+          "url": "https://anthropic.com",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "Anthropic has launched a native desktop app for Claude, integrating real-time collaboration via live Artifact panels on macOS and Windows.",
+          "noveltyScore": 8,
+          "industryImpact": 8,
+          "citations": 7,
+          "engagement": 9,
+          "totalScore": 32
+        }
+      ],
+      "topSelected": [
+        {
+          "id": "n2",
+          "title": "AlphaFold 3 Code is Now Openly Available",
+          "source": "Google DeepMind",
+          "url": "https://deepmind.google",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "Google DeepMind has released the full source code and weights of AlphaFold 3 for academic research, boosting drug discovery efforts.",
+          "noveltyScore": 10,
+          "industryImpact": 10,
+          "citations": 10,
+          "engagement": 9,
+          "totalScore": 39
+        },
+        {
+          "id": "n1",
+          "title": "OpenAI Releases Realtime API in Public Beta",
+          "source": "OpenAI Blog",
+          "url": "https://openai.com",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "OpenAI has opened the public beta of its Realtime API, enabling developer access to low-latency multi-modal audio responses.",
+          "noveltyScore": 9,
+          "industryImpact": 9,
+          "citations": 8,
+          "engagement": 9,
+          "totalScore": 35
+        },
+        {
+          "id": "n3",
+          "title": "Anthropic Launches Claude 3.5 Desktop App",
+          "source": "Anthropic News",
+          "url": "https://anthropic.com",
+          "publishedAt": "2026-06-26T09:27:54.994Z",
+          "summary": "Anthropic has launched a native desktop app for Claude, integrating real-time collaboration via live Artifact panels on macOS and Windows.",
+          "noveltyScore": 8,
+          "industryImpact": 8,
+          "citations": 7,
+          "engagement": 9,
+          "totalScore": 32
+        }
+      ],
+      "generatedContent": {
+        "headline": "DeepMind Open-Sources AlphaFold 3 & OpenAI Realtime Beta Launch",
+        "oneSentenceSummary": "In today's AI news, DeepMind releases the highly-anticipated AlphaFold 3 source code, while OpenAI brings low-latency audio endpoints to global developers.",
+        "keyTakeaways": [
+          "AlphaFold 3 source code and model weights are now completely open to scientists worldwide for structural biology discovery.",
+          "OpenAI's Realtime API is in public beta, dramatically lowering barriers to creating conversational agents with voice capabilities.",
+          "Claude Desktop application streamlines collaborative workspaces via direct artifacts processing interface."
+        ],
+        "scriptText": "Welcome back to your Daily AI Update! Groundbreaking news from London as Google DeepMind officially open-sources the full AlphaFold 3 model weights, transforming biological discovery forever. Back in San Francisco, OpenAI has launched its new Realtime API into public beta, giving developers a direct portal to synthesize split-second voice responses. Lastly, Anthropic expands Claude into full native desktop interfaces, taking collaboration to the system level. Which release will disrupt your workflow first? Subscribe for more updates!",
+        "voiceVoice": "Kore",
+        "slides": [
+          {
+            "id": "s-1",
+            "title": "AlphaFold 3 Is Open Source",
+            "subtitle": "Google DeepMind unlocks advanced molecular biology structural prediction.",
+            "text": "DeepMind open-sources AlphaFold 3 weights, triggering a massive boost for global bioinformatics and healthcare research.",
+            "imageKeyword": "dna molecule double helix digital simulation futuristic",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1530026405186-ed1ea400c3af?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-2",
+            "title": "OpenAI Realtime API Beta",
+            "subtitle": "Split-second audio latency now accessible for voice agents.",
+            "text": "OpenAI takes conversational AI forward with the Realtime API, allowing high-performance audio client streaming.",
+            "imageKeyword": "robotic microchip neural network abstract glow",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-3",
+            "title": "Claude Desktop On Native Rails",
+            "subtitle": "Anthropic brings Artifact workspaces straight to macOS and Windows.",
+            "text": "Anthropic launches a full-fledged Claude desktop workspace for continuous context and interactive artifacts coding.",
+            "imageKeyword": "minimal tech workspace clean setup programming",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=720"
+          }
+        ]
+      },
+      "thumbnailUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1280",
+      "videoUrl": "#",
+      "emailDistributed": true,
+      "fbPublished": true,
+      "analytics": {
+        "views": 1850,
+        "completionRate": 68.2,
+        "shares": 42,
+        "likes": 196,
+        "clicks": 84
+      }
+    },
+    {
+      "id": "job-auto-1782701840915",
+      "date": "2026-06-29T02:57:20.915Z",
+      "status": "completed",
+      "progress": 100,
+      "logs": [
+        "Triggering automated scheduled execution for 08:57",
+        "Starting news gather sweep...",
+        "Querying live top AI stories via Gemini 3.5 Grounding Engine (OpenAI, DeepMind, TechCrunch)...",
+        "Could not invoke search grounding directly ({\"error\":{\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\"status\":\"RESOURCE_EXHAUSTED\",\"details\":[{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]}]}}). Initiating fallback database.",
+        "Evaluating & ranking collected candidate developments based on citation density, industry impact, and social signals...",
+        "News ranking complete! Selected Top 3 stories:",
+        " - [Rank 1] Meta Research accelerates neural engineering pipelines to public audience (The Verge Tech) - Score: 36",
+        " - [Rank 2] Mistral Premium reduces inference latency by seventy percent to public audience (MIT Tech Review) - Score: 35",
+        " - [Rank 3] OpenAI Labs introduces advanced spatial reasoning systems to public audience (TechCrunch AI) - Score: 34",
+        "Drafting automated headline, script drafts, and slide layout formats using gemini-3.5-flash...",
+        "Scriptwriter AI experienced an exception ({\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}). Formulating fallback template.",
+        "Compiling Voice-Over narration segments. Integrating background synthesizer loops...",
+        "Configuring portrait resolution grid (1080x1920) for reel layout formats...",
+        "Assembling dynamic subtitle overlays, text layers, and transition cues...",
+        "Rendering complete. Formulating custom video newsletters and page feed posts...",
+        "Initiating connection with connected Gmail OAuth pipeline...",
+        "Dispatched video summaries to registered subscriber endpoints...",
+        "Connecting to Facebook Graph API feed publisher gateway...",
+        "Automation pipeline completed successfully! Content distributed via Gmail & Facebook."
+      ],
+      "newsCollected": [
+        {
+          "id": "news-f-1782701841463-1",
+          "title": "Google DeepMind launches lightweight multimodal architecture to public audience",
+          "source": "VentureBeat Daily",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T21:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 7,
+          "industryImpact": 8,
+          "citations": 9,
+          "engagement": 6,
+          "totalScore": 30
+        },
+        {
+          "id": "news-f-1782701841463-2",
+          "title": "Anthropic AI supercharges code generation workflows to public audience",
+          "source": "Hugging Face Blog",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T20:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 9,
+          "industryImpact": 10,
+          "citations": 6,
+          "engagement": 7,
+          "totalScore": 32
+        },
+        {
+          "id": "news-f-1782701841463-3",
+          "title": "Meta Research accelerates neural engineering pipelines to public audience",
+          "source": "The Verge Tech",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T22:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 9,
+          "citations": 6,
+          "engagement": 7,
+          "totalScore": 30
+        },
+        {
+          "id": "news-f-1782701841463-4",
+          "title": "Mistral Premium reduces inference latency by seventy percent to public audience",
+          "source": "MIT Tech Review",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T19:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 7,
+          "industryImpact": 7,
+          "citations": 10,
+          "engagement": 8,
+          "totalScore": 32
+        },
+        {
+          "id": "news-f-1782701841463-5",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T22:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 7,
+          "industryImpact": 7,
+          "citations": 9,
+          "engagement": 8,
+          "totalScore": 31
+        },
+        {
+          "id": "news-f-1782701841463-6",
+          "title": "Google DeepMind launches lightweight multimodal architecture to public audience",
+          "source": "VentureBeat Daily",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T20:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 9,
+          "industryImpact": 9,
+          "citations": 8,
+          "engagement": 7,
+          "totalScore": 33
+        },
+        {
+          "id": "news-f-1782701841463-7",
+          "title": "Anthropic AI supercharges code generation workflows to public audience",
+          "source": "Hugging Face Blog",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T17:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 9,
+          "industryImpact": 8,
+          "citations": 6,
+          "engagement": 6,
+          "totalScore": 29
+        },
+        {
+          "id": "news-f-1782701841463-8",
+          "title": "Meta Research accelerates neural engineering pipelines to public audience",
+          "source": "The Verge Tech",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T23:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 8,
+          "citations": 10,
+          "engagement": 10,
+          "totalScore": 36
+        },
+        {
+          "id": "news-f-1782701841463-9",
+          "title": "Mistral Premium reduces inference latency by seventy percent to public audience",
+          "source": "MIT Tech Review",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T23:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 10,
+          "citations": 10,
+          "engagement": 7,
+          "totalScore": 35
+        },
+        {
+          "id": "news-f-1782701841463-10",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T19:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 10,
+          "industryImpact": 10,
+          "citations": 6,
+          "engagement": 8,
+          "totalScore": 34
+        }
+      ],
+      "topSelected": [
+        {
+          "id": "news-f-1782701841463-8",
+          "title": "Meta Research accelerates neural engineering pipelines to public audience",
+          "source": "The Verge Tech",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T23:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 8,
+          "citations": 10,
+          "engagement": 10,
+          "totalScore": 36
+        },
+        {
+          "id": "news-f-1782701841463-9",
+          "title": "Mistral Premium reduces inference latency by seventy percent to public audience",
+          "source": "MIT Tech Review",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T23:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 10,
+          "citations": 10,
+          "engagement": 7,
+          "totalScore": 35
+        },
+        {
+          "id": "news-f-1782701841463-10",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T19:57:21.463Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 10,
+          "industryImpact": 10,
+          "citations": 6,
+          "engagement": 8,
+          "totalScore": 34
+        }
+      ],
+      "generatedContent": {
+        "headline": "Breaking AI Developments: Deep Reinforcement & Core Multi-Modal Breakthroughs",
+        "oneSentenceSummary": "Today features massive strides in open structural biology and conversational engine updates accelerating programmatic developer tools.",
+        "keyTakeaways": [
+          "New architecture delivers native latency optimization exceeding older developer bounds.",
+          "Leading laboratories fully open key parameters and weights to global research networks.",
+          "Ecosystem extensions expand cloud code environments right to operating systems."
+        ],
+        "scriptText": "Welcome to your Daily AI Update! Today, leading teams take core AI software forward. First, structural prediction gets a global acceleration boost as primary core protein prediction weights go completely open source, promising medical breakthroughs. Next, microsecond latency barriers fall as next-gen conversational endpoints launch, enabling hyper-realistic developer agent assistants. Lastly, rich artifact panels emerge natively on your desktop, blending AI reasoning right into local files. Which of these will rewrite your workflow? Give us a subscribe and share!",
+        "voiceVoice": "Zephyr",
+        "slides": [
+          {
+            "id": "s-f-1",
+            "title": "Structural Biology Open Source",
+            "subtitle": "Empowering global chemistry research blocks.",
+            "text": "High precision prediction formulas release weights to accelerate complex therapeutic developments and chemical formulas.",
+            "imageKeyword": "neon biological molecular grid cybernetic futuristic violet",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-f-2",
+            "title": "Conversational Interface Beta",
+            "subtitle": "Hyper-realistic split latency speeds.",
+            "text": "Developer portal integrates voice framework channels representing double digit speed advancements.",
+            "imageKeyword": "abstract neural node connectivity light lines tech",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-f-3",
+            "title": "System Context Artifacts",
+            "subtitle": "Blending intelligence right into workspace files.",
+            "text": "Desktop platform delivers structural programming outputs straight into interactive coding previews.",
+            "imageKeyword": "cyberpunk computer monitor server coding setup glowing",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=720"
+          }
+        ]
+      },
+      "thumbnailUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1280",
+      "videoUrl": "#",
+      "emailDistributed": true,
+      "fbPublished": true,
+      "analytics": {
+        "views": 1349,
+        "completionRate": 63.2,
+        "shares": 12,
+        "likes": 167,
+        "clicks": 87
+      }
+    }
+  ]
+}
