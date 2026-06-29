@@ -1,0 +1,6 @@
+{
+  "name": "AI News Agent SaaS",
+  "description": "Automated AI news collection, ranking, summarization, script writing, video generation, and distribution pipeline with SaaS dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
