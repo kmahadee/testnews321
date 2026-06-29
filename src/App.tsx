@@ -4,29 +4,29 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Server, 
-  Clock, 
-  Settings, 
-  Mail, 
-  Facebook, 
-  Users, 
-  Play, 
-  CheckCircle2, 
-  TrendingUp, 
-  Plus, 
-  Trash2, 
-  LogOut, 
-  Key, 
-  Terminal, 
-  Sliders, 
-  Sparkles, 
-  Layers, 
-  Lock, 
-  RefreshCcw, 
-  FileText, 
-  Check, 
-  ChevronRight, 
+import {
+  Server,
+  Clock,
+  Settings,
+  Mail,
+  Facebook,
+  Users,
+  Play,
+  CheckCircle2,
+  TrendingUp,
+  Plus,
+  Trash2,
+  LogOut,
+  Key,
+  Terminal,
+  Sliders,
+  Sparkles,
+  Layers,
+  Lock,
+  RefreshCcw,
+  FileText,
+  Check,
+  ChevronRight,
   AlertTriangle,
   Settings2,
   CheckCircle,
@@ -41,16 +41,16 @@ import ReelSimulator from './components/ReelSimulator';
 import ActiveJobLogger from './components/ActiveJobLogger';
 import DocsHub from './components/DocsHub';
 
-import { 
-  NewsStory, 
-  GeneratedScript, 
-  Recipient, 
-  FacebookConfig, 
+import {
+  NewsStory,
+  GeneratedScript,
+  Recipient,
+  FacebookConfig,
   GmailConfig,
   SystemConfig,
   ScheduleConfig,
-  VideoJob, 
-  DashboardStats 
+  VideoJob,
+  DashboardStats
 } from './types';
 
 export default function App() {
@@ -70,7 +70,7 @@ export default function App() {
   const [systemConfig, setSystemConfig] = useState<SystemConfig | null>(null);
   const [scheduleConfig, setScheduleConfig] = useState<ScheduleConfig | null>(null);
   const [jobsHistory, setJobsHistory] = useState<VideoJob[]>([]);
-  
+
   // Selected Job for Reel playback / details inspection
   const [selectedJob, setSelectedJob] = useState<VideoJob | null>(null);
 
@@ -82,7 +82,7 @@ export default function App() {
   const [newRecName, setNewRecName] = useState('');
   const [newRecEmail, setNewRecEmail] = useState('');
   const [addRecSuccess, setAddRecSuccess] = useState('');
-  
+
   const [editCron, setEditCron] = useState('');
   const [editTime, setEditTime] = useState('');
   const [scheduleStatusMsg, setScheduleStatusMsg] = useState('');
@@ -204,7 +204,7 @@ export default function App() {
       if (res.ok) {
         const data = await res.json();
         setJobsHistory(data);
-        
+
         // Default select latest completed job for player
         if (data.length > 0 && !selectedJob) {
           const latestCompleted = data.find((j: VideoJob) => j.status === 'completed');
@@ -262,7 +262,7 @@ export default function App() {
           'facebook-oauth-popup',
           `width=${width},height=${height},left=${left},top=${top},status=no,resizable=yes,scrollbars=yes`
         );
-        
+
         const handleMessage = (e: MessageEvent) => {
           if (e.data && e.data.type === 'OAUTH_AUTH_SUCCESS' && e.data.service === 'facebook') {
             fetchFacebookConfig();
@@ -290,7 +290,7 @@ export default function App() {
           'gmail-oauth-popup',
           `width=${width},height=${height},left=${left},top=${top},status=no,resizable=yes,scrollbars=yes`
         );
-        
+
         const handleMessage = (e: MessageEvent) => {
           if (e.data && e.data.type === 'OAUTH_AUTH_SUCCESS' && e.data.service === 'gmail') {
             fetchGmailConfig();
@@ -386,7 +386,7 @@ export default function App() {
       const res = await fetch('/api/schedule-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cron: editCron, time: editTime })
+        body: JSON.stringify({ cron: editCron, time: editTime, timezone: 'Asia/Dhaka' })
       });
       if (res.ok) {
         fetchScheduleConfig();
@@ -413,14 +413,15 @@ export default function App() {
           emailSenderAddress: gmailConfig?.emailAddress || ''
         })
       });
-      
+
       // 2. Save schedule configurations
       await fetch('/api/schedule-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           time: wizTime,
-          enabled: true
+          enabled: true,
+          timezone: 'Asia/Dhaka'
         })
       });
 
@@ -452,7 +453,8 @@ export default function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           time: wizTime,
-          enabled: true
+          enabled: true,
+          timezone: 'Asia/Dhaka'
         })
       });
 
@@ -491,11 +493,11 @@ export default function App() {
       const res = await fetch('/api/facebook-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          pageName: editFbPageName, 
-          pageId: editFbPageId, 
+        body: JSON.stringify({
+          pageName: editFbPageName,
+          pageId: editFbPageId,
           accessToken: editFbToken,
-          connected: true 
+          connected: true
         })
       });
       if (res.ok) {
@@ -539,7 +541,7 @@ export default function App() {
             clearInterval(pollInterval);
             setIsTriggering(false);
             loadAllData();
-            
+
             // Set newly created completed job as active playback preview
             if (jobData.status === 'completed') {
               setSelectedJob(jobData);
@@ -620,7 +622,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-[#1c1c1e] font-sans antialiased">
-      
+
       {/* ----------------- SECURITY PASSWORD WALL ----------------- */}
       {!isLoggedIn && (
         <div className="fixed inset-0 bg-[#f3f4f6]/85 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-fade-in">
@@ -628,7 +630,7 @@ export default function App() {
             <div className="mx-auto w-12 h-12 bg-neutral-900 text-white rounded-xl flex items-center justify-center shadow-lg">
               <Lock className="w-6 h-6" />
             </div>
-            
+
             <div className="space-y-1">
               <h2 className="text-xl font-display font-bold text-gray-900 tracking-tight">AI News Agent Admin Lock</h2>
               <p className="text-xs text-gray-500">Sign in using default credentials to unlock SaaS core controllers.</p>
@@ -639,7 +641,7 @@ export default function App() {
                 <label className="text-[10px] font-mono uppercase text-gray-400">Security bypass key</label>
                 <div className="relative">
                   <Key className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
-                  <input 
+                  <input
                     type="password"
                     placeholder="Enter password..."
                     value={adminPassword}
@@ -674,7 +676,7 @@ export default function App() {
       {isLoggedIn && systemConfig && !systemConfig.setupWizardCompleted && (
         <div className="min-h-screen bg-slate-550/5 flex flex-col items-center justify-center py-12 px-4">
           <div className="w-full max-w-2xl bg-white border border-gray-150 rounded-3xl shadow-xl overflow-hidden">
-            
+
             {/* Header section with progress steps */}
             <div className="bg-neutral-900 text-white p-8">
               <div className="flex items-center gap-3">
@@ -690,7 +692,7 @@ export default function App() {
               {/* Progress Bar and Step Labels */}
               <div className="mt-8">
                 <div className="w-full bg-neutral-800 rounded-full h-1.5 overflow-hidden">
-                  <div 
+                  <div
                     className="bg-gradient-to-r from-teal-400 to-emerald-400 h-full transition-all duration-300"
                     style={{ width: `${(wizardStep / 5) * 100}%` }}
                   />
@@ -707,7 +709,7 @@ export default function App() {
 
             {/* Step Content */}
             <div className="p-8 space-y-6">
-              
+
               {/* STEP 1: API KEYS CONFIGURATION */}
               {wizardStep === 1 && (
                 <div className="space-y-4 animate-fade-in">
@@ -724,8 +726,8 @@ export default function App() {
                         </label>
                         <span className="text-[10px] font-mono text-teal-600 bg-teal-50 px-1.5 py-0.5 rounded">Required</span>
                       </div>
-                      <input 
-                        type="password" 
+                      <input
+                        type="password"
                         value={wizGeminiKey}
                         onChange={(e) => setWizGeminiKey(e.target.value)}
                         className="w-full text-xs p-3 border border-gray-200 rounded-xl focus:ring-1 focus:ring-teal-500 focus:outline-none font-mono bg-gray-50/30"
@@ -738,8 +740,8 @@ export default function App() {
                         <label className="text-xs font-semibold text-gray-700">OpenAI API Key (Optional)</label>
                         <span className="text-[10px] font-mono text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded font-bold">Fallback</span>
                       </div>
-                      <input 
-                        type="password" 
+                      <input
+                        type="password"
                         value={wizOpenaiKey}
                         onChange={(e) => setWizOpenaiKey(e.target.value)}
                         className="w-full text-xs p-3 border border-gray-200 rounded-xl focus:ring-1 focus:ring-teal-500 focus:outline-none font-mono bg-gray-50/30"
@@ -791,10 +793,10 @@ export default function App() {
                         onClick={handleConnectFacebook}
                         className="py-2.5 px-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl shadow-md transition-colors flex items-center gap-2"
                       >
-                        <Facebook className="w-4 h-4" /> 
+                        <Facebook className="w-4 h-4" />
                         {facebookConfig?.connected ? 'Reconnect Facebook Page' : 'Connect Facebook Page'}
                       </button>
-                      
+
                       {!facebookConfig?.connected && (
                         <button
                           type="button"
@@ -887,16 +889,16 @@ export default function App() {
                     {/* Add Recipient */}
                     <div className="space-y-3 p-4 bg-gray-50 border border-gray-150 rounded-2xl">
                       <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-wide">Register Subscriber Recipients</span>
-                      
+
                       <form onSubmit={handleWizAddRecipient} className="space-y-2">
-                        <input 
+                        <input
                           type="text"
                           placeholder="Name..."
                           value={wizRecName}
                           onChange={(e) => setWizRecName(e.target.value)}
                           className="w-full text-xs p-2 border border-gray-200 rounded-lg bg-white"
                         />
-                        <input 
+                        <input
                           type="email"
                           placeholder="Email address..."
                           value={wizRecEmail}
@@ -927,16 +929,16 @@ export default function App() {
                       <div className="space-y-2">
                         <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-wide block">Configure daily schedule time</span>
                         <p className="text-[11px] text-gray-500">Select when you want your AI News Agent to wake up daily, find news, compile, render and publish.</p>
-                        <input 
+                        <input
                           type="time"
                           value={wizTime}
                           onChange={(e) => setWizTime(e.target.value)}
                           className="w-full text-xs p-3 border border-gray-200 rounded-xl bg-white font-mono font-bold text-center mt-2"
                         />
                       </div>
-                      
+
                       <div className="text-[10px] font-mono text-gray-400 text-center">
-                        Selected run: <strong>{wizTime} UTC</strong> daily
+                        Selected run: <strong>{wizTime} Asia/Dhaka</strong> daily
                       </div>
                     </div>
                   </div>
@@ -973,7 +975,7 @@ export default function App() {
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="text-gray-500">Runtimes Trigger:</span>
-                          <span className="font-mono font-bold text-teal-600">{wizTime} UTC</span>
+                          <span className="font-mono font-bold text-teal-600">{wizTime} Asia/Dhaka</span>
                         </div>
                       </div>
                     </div>
@@ -983,7 +985,7 @@ export default function App() {
                       <div className="space-y-3 text-xs">
                         <div className="space-y-1">
                           <label className="text-[10px] font-medium text-gray-550 block">Auto-Retry Limit on failure</label>
-                          <select 
+                          <select
                             value={wizAutoRetryCount}
                             onChange={(e) => setWizAutoRetryCount(Number(e.target.value))}
                             className="w-full text-xs p-1.5 border border-gray-200 rounded-lg bg-white"
@@ -994,7 +996,7 @@ export default function App() {
                           </select>
                         </div>
                         <div className="flex items-center gap-2">
-                          <input 
+                          <input
                             type="checkbox"
                             id="wizAlertCheck"
                             checked={wizSendErrorAlerts}
@@ -1026,11 +1028,10 @@ export default function App() {
                 type="button"
                 disabled={wizardStep === 1}
                 onClick={() => setWizardStep(prev => prev - 1)}
-                className={`px-4 py-2 text-xs font-bold rounded-xl border transition-colors ${
-                  wizardStep === 1
-                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                    : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
-                }`}
+                className={`px-4 py-2 text-xs font-bold rounded-xl border transition-colors ${wizardStep === 1
+                  ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+                  : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
+                  }`}
               >
                 Back
               </button>
@@ -1067,7 +1068,7 @@ export default function App() {
           {/* Header Bar */}
           <header className="sticky top-0 bg-white/85 backdrop-blur-md border-b border-gray-100 z-30 shadow-xs">
             <div className="max-w-7xl mx-auto px-4 md:px-8 py-3.5 flex items-center justify-between">
-              
+
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-neutral-900 text-white rounded-xl shadow-md">
                   <Server className="w-5 h-5 text-teal-400" />
@@ -1079,19 +1080,18 @@ export default function App() {
                     </h1>
                     <button
                       onClick={() => handleToggleAutomation(systemConfig.automationEnabled)}
-                      className={`px-2 py-0.5 rounded text-[9px] font-bold font-mono uppercase tracking-wide flex items-center gap-1 transition-all ${
-                        systemConfig.automationEnabled 
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
-                          : 'bg-rose-50 text-rose-700 border border-rose-200'
-                      }`}
+                      className={`px-2 py-0.5 rounded text-[9px] font-bold font-mono uppercase tracking-wide flex items-center gap-1 transition-all ${systemConfig.automationEnabled
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                        : 'bg-rose-50 text-rose-700 border border-rose-200'
+                        }`}
                     >
                       <span className={`w-1.5 h-1.5 rounded-full ${systemConfig.automationEnabled ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500'}`} />
                       {systemConfig.automationEnabled ? 'Automation Engaged' : 'Agent Idle'}
                     </button>
                   </div>
                   <p className="text-[10px] font-mono text-gray-500 mt-0.5 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-teal-500" /> 
-                    Next Daily Run: <strong className="text-gray-700">{scheduleConfig?.time || '07:00'} UTC</strong> | Mode: {systemConfig.automationEnabled ? 'Armed' : 'Standby'}
+                    <Clock className="w-3 h-3 text-teal-500" />
+                    Next Daily Run: <strong className="text-gray-700">{scheduleConfig?.time || '07:00'} Asia/Dhaka</strong> | Mode: {systemConfig.automationEnabled ? 'Armed' : 'Standby'}
                   </p>
                 </div>
               </div>
@@ -1100,7 +1100,7 @@ export default function App() {
                 {/* Advanced Quick Trigger indicators */}
                 <div className="hidden sm:flex items-center gap-3.5 text-xs font-mono bg-gray-50 border border-gray-150 px-4 py-1.5 rounded-xl">
                   <span className="flex items-center gap-1.5 text-gray-500">
-                    <Facebook className="w-3.5 h-3.5 text-blue-600" /> 
+                    <Facebook className="w-3.5 h-3.5 text-blue-600" />
                     {facebookConfig?.connected ? 'Page Linked' : 'Page Unlinked'}
                   </span>
                   <span className="w-px h-3 bg-gray-200" />
@@ -1139,31 +1139,29 @@ export default function App() {
           </header>
 
           <main className="max-w-7xl mx-auto px-4 md:px-8 py-6 space-y-6">
-            
+
             {/* Dashboard Tabs & Action Triggers */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white border border-gray-100 p-3 rounded-2xl shadow-xs">
               <div className="flex items-center gap-1">
                 <button
                   id="btn_tab_control"
                   onClick={() => setActiveMainTab('control')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-                    activeMainTab === 'control' 
-                      ? 'bg-neutral-900 text-white shadow-sm' 
-                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${activeMainTab === 'control'
+                    ? 'bg-neutral-900 text-white shadow-sm'
+                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
                 >
                   <SlidersHorizontal className="w-3.5 h-3.5" />
                   Control Panel
                 </button>
-                
+
                 <button
                   id="btn_tab_history"
                   onClick={() => setActiveMainTab('history')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-                    activeMainTab === 'history' 
-                      ? 'bg-neutral-900 text-white shadow-sm' 
-                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${activeMainTab === 'history'
+                    ? 'bg-neutral-900 text-white shadow-sm'
+                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
                 >
                   <FileText className="w-3.5 h-3.5" />
                   Archive Archives ({jobsHistory.filter(j => j.status === 'completed').length})
@@ -1172,11 +1170,10 @@ export default function App() {
                 <button
                   id="btn_tab_blueprints"
                   onClick={() => setActiveMainTab('blueprints')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-                    activeMainTab === 'blueprints' 
-                      ? 'bg-neutral-900 text-white shadow-sm' 
-                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${activeMainTab === 'blueprints'
+                    ? 'bg-neutral-900 text-white shadow-sm'
+                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
                 >
                   <Terminal className="w-3.5 h-3.5" />
                   Docs & System Guide
@@ -1188,11 +1185,10 @@ export default function App() {
                   id="btn_run_agent_manual"
                   disabled={isTriggering}
                   onClick={handleManualTrigger}
-                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold rounded-xl border transition-all ${
-                    isTriggering
-                      ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
-                      : 'bg-teal-500 text-white border-teal-600 hover:bg-teal-600 shadow-md transform hover:-translate-y-0.5'
-                  }`}
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold rounded-xl border transition-all ${isTriggering
+                    ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                    : 'bg-teal-500 text-white border-teal-600 hover:bg-teal-600 shadow-md transform hover:-translate-y-0.5'
+                    }`}
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   {isTriggering ? 'Pipeline Sweep Active...' : 'Gather & Publish Now'}
@@ -1203,10 +1199,10 @@ export default function App() {
             {/* TAB A: CONTROL PANEL */}
             {activeMainTab === 'control' && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                
+
                 {/* Left Side: Dynamic Controls & Subscribers */}
                 <div className="space-y-6 lg:col-span-1">
-                  
+
                   {/* System Toggle armed toggle */}
                   <div className="bg-white border border-gray-100 p-5 rounded-2xl shadow-xs space-y-4">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 block border-b border-gray-50 pb-2">
@@ -1217,13 +1213,12 @@ export default function App() {
                         <div className="text-xs font-bold text-gray-800">Start/Stop Automation</div>
                         <p className="text-[10px] text-gray-400">Daily checks are {systemConfig.automationEnabled ? 'engaged' : 'paused'}</p>
                       </div>
-                      
+
                       <button
                         type="button"
                         onClick={() => handleToggleAutomation(systemConfig.automationEnabled)}
-                        className={`w-12 h-6 rounded-full p-1 transition-all ${
-                          systemConfig.automationEnabled ? 'bg-teal-500 flex justify-end' : 'bg-gray-300 flex justify-start'
-                        }`}
+                        className={`w-12 h-6 rounded-full p-1 transition-all ${systemConfig.automationEnabled ? 'bg-teal-500 flex justify-end' : 'bg-gray-300 flex justify-start'
+                          }`}
                       >
                         <div className="w-4 h-4 bg-white rounded-full shadow-sm" />
                       </button>
@@ -1232,8 +1227,8 @@ export default function App() {
                     <form onSubmit={handleSaveSchedule} className="space-y-3 pt-2">
                       <div className="space-y-1">
                         <label className="text-[9px] font-mono uppercase text-gray-400">Run Schedule Time (Daily)</label>
-                        <input 
-                          type="time" 
+                        <input
+                          type="time"
                           value={editTime}
                           onChange={(e) => setEditTime(e.target.value)}
                           className="w-full text-xs p-2 border border-gray-200 rounded-lg bg-gray-50/50 font-mono font-bold text-center"
@@ -1272,11 +1267,10 @@ export default function App() {
                           <div className="flex items-center gap-1">
                             <button
                               onClick={() => handleToggleRecipient(r.id, r.enabled)}
-                              className={`p-1 rounded-md border transition-colors ${
-                                r.enabled 
-                                  ? 'bg-teal-50 text-teal-600 border-teal-100' 
-                                  : 'bg-gray-100 text-gray-400 border-gray-250'
-                              }`}
+                              className={`p-1 rounded-md border transition-colors ${r.enabled
+                                ? 'bg-teal-50 text-teal-600 border-teal-100'
+                                : 'bg-gray-100 text-gray-400 border-gray-250'
+                                }`}
                               title={r.enabled ? 'Mute' : 'Engage'}
                             >
                               <Check className="w-3 h-3 stroke-[2.5]" />
@@ -1298,16 +1292,16 @@ export default function App() {
 
                     <form onSubmit={handleAddRecipient} className="pt-2 border-t border-gray-100 space-y-2">
                       <div className="grid grid-cols-2 gap-1.5">
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="Name..."
                           value={newRecName}
                           onChange={(e) => setNewRecName(e.target.value)}
                           className="text-xs p-1.5 border border-gray-200 rounded-lg bg-gray-50/30"
                           required
                         />
-                        <input 
-                          type="email" 
+                        <input
+                          type="email"
                           placeholder="Email..."
                           value={newRecEmail}
                           onChange={(e) => setNewRecEmail(e.target.value)}
@@ -1337,9 +1331,8 @@ export default function App() {
                           <span className="font-semibold text-gray-800 flex items-center gap-1">
                             <Facebook className="w-3.5 h-3.5 text-blue-600" /> Facebook Page Feed
                           </span>
-                          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded leading-none ${
-                            facebookConfig?.connected ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
-                          }`}>
+                          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded leading-none ${facebookConfig?.connected ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+                            }`}>
                             {facebookConfig?.connected ? 'Linked' : 'Disconnected'}
                           </span>
                         </div>
@@ -1363,9 +1356,8 @@ export default function App() {
                           <span className="font-semibold text-gray-800 flex items-center gap-1">
                             <Mail className="w-3.5 h-3.5 text-teal-600" /> Gmail Delivery Routing
                           </span>
-                          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded leading-none ${
-                            gmailConfig?.connected ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
-                          }`}>
+                          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded leading-none ${gmailConfig?.connected ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+                            }`}>
                             {gmailConfig?.connected ? 'Linked' : 'Disconnected'}
                           </span>
                         </div>
@@ -1473,7 +1465,7 @@ export default function App() {
 
                 {/* Right Side: Primary Active Stage */}
                 <div className="space-y-6 lg:col-span-2">
-                  
+
                   {/* Dynamic player */}
                   {activeReelContent ? (
                     <ReelSimulator content={activeReelContent} />
@@ -1532,7 +1524,7 @@ export default function App() {
             {/* TAB B: ARCHIVES HISTORY */}
             {activeMainTab === 'history' && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                
+
                 {/* Left: Job Lists */}
                 <div className="space-y-3 lg:col-span-1">
                   <div className="p-3 border-b border-gray-150">
@@ -1550,15 +1542,13 @@ export default function App() {
                         <button
                           key={job.id}
                           onClick={() => setSelectedJob(job)}
-                          className={`w-full p-4 rounded-2xl border text-left transition-all flex flex-col gap-2 bg-white ${
-                            isSelected ? 'ring-2 ring-teal-500/50 border-teal-500' : 'border-gray-100 hover:border-gray-250'
-                          }`}
+                          className={`w-full p-4 rounded-2xl border text-left transition-all flex flex-col gap-2 bg-white ${isSelected ? 'ring-2 ring-teal-500/50 border-teal-500' : 'border-gray-100 hover:border-gray-250'
+                            }`}
                         >
                           <div className="flex justify-between items-center w-full">
                             <span className="text-[10px] font-mono text-gray-400 uppercase font-bold">{job.id}</span>
-                            <span className={`text-[8px] font-bold font-mono uppercase px-1.5 py-0.5 rounded ${
-                              job.status === 'completed' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
-                            }`}>
+                            <span className={`text-[8px] font-bold font-mono uppercase px-1.5 py-0.5 rounded ${job.status === 'completed' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+                              }`}>
                               {job.status}
                             </span>
                           </div>
@@ -1590,7 +1580,7 @@ export default function App() {
                 <div className="lg:col-span-2">
                   {selectedJob ? (
                     <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-xs space-y-6">
-                      
+
                       <div className="flex justify-between items-center border-b border-gray-150 pb-4 flex-wrap gap-2">
                         <div>
                           <span className="text-[9px] font-mono text-teal-500 font-bold uppercase">Archive Record Profile</span>
@@ -1619,7 +1609,7 @@ export default function App() {
                           {selectedJob.topSelected?.map((st, i) => (
                             <div key={st.id} className="p-3 border border-gray-150 rounded-xl bg-white space-y-1.5">
                               <div className="flex justify-between items-center">
-                                <span className="text-[9px] font-bold text-teal-600 bg-teal-50 px-1 py-0.5 rounded">Rank {i+1}</span>
+                                <span className="text-[9px] font-bold text-teal-600 bg-teal-50 px-1 py-0.5 rounded">Rank {i + 1}</span>
                                 <span className="text-[9px] font-mono font-bold text-gray-400">Score {st.totalScore}</span>
                               </div>
                               <h6 className="text-xs font-bold text-gray-800 line-clamp-1">{st.title}</h6>
@@ -1647,7 +1637,7 @@ export default function App() {
                         <div className="bg-[#111] p-4 rounded-xl text-[10px] font-mono text-neutral-300 leading-relaxed max-h-[180px] overflow-y-auto">
                           {selectedJob.logs.map((log, idx) => (
                             <div key={idx} className="py-0.5">
-                              <span className="text-neutral-500 font-bold">[{idx+1}]</span> {log}
+                              <span className="text-neutral-500 font-bold">[{idx + 1}]</span> {log}
                             </div>
                           ))}
                         </div>
@@ -1671,7 +1661,7 @@ export default function App() {
 
       {/* Background active scheduler trigger log overlay */}
       {activePollingJob && (activePollingJob.status !== 'completed' && activePollingJob.status !== 'failed') && (
-        <ActiveJobLogger 
+        <ActiveJobLogger
           job={activePollingJob}
           onClose={() => setActivePollingJob(null)}
         />

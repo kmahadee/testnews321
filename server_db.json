@@ -6,6 +6,13 @@
       "email": "izakshuvo@gmail.com",
       "enabled": true,
       "addedAt": "2026-06-28T09:28:43.779Z"
+    },
+    {
+      "id": "rec-vgen8qsz6",
+      "name": "oo",
+      "email": "izakshuvo@gmail.com",
+      "enabled": true,
+      "addedAt": "2026-06-29T04:06:06.370Z"
     }
   ],
   "facebookConfig": {
@@ -31,12 +38,12 @@
     "automationEnabled": true
   },
   "scheduleConfig": {
-    "cron": "57 8 * * *",
-    "time": "08:57",
+    "cron": "7 10 * * *",
+    "time": "10:07",
     "enabled": true,
     "timezone": "Asia/Dhaka",
-    "nextRunAt": "2026-06-30T02:57:00.470Z",
-    "lastRunAt": "2026-06-29T02:57:54.470Z"
+    "lastRunAt": "2026-06-29T04:07:33.005Z",
+    "nextRunAt": "2026-06-30T04:07:00.005Z"
   },
   "jobs": [
     {
@@ -436,6 +443,252 @@
         "shares": 12,
         "likes": 167,
         "clicks": 87
+      }
+    },
+    {
+      "id": "job-auto-1782706049833",
+      "date": "2026-06-29T04:07:29.832Z",
+      "status": "completed",
+      "progress": 100,
+      "logs": [
+        "Triggering automated scheduled execution for 10:07",
+        "Starting news gather sweep...",
+        "Querying live top AI stories via Gemini 3.5 Grounding Engine (OpenAI, DeepMind, TechCrunch)...",
+        "Evaluating & ranking collected candidate developments based on citation density, industry impact, and social signals...",
+        "News ranking complete! Selected Top 3 stories:",
+        " - [Rank 1] OpenAI Labs introduces advanced spatial reasoning systems to public audience (TechCrunch AI) - Score: 35",
+        " - [Rank 2] Anthropic AI supercharges code generation workflows to public audience (Hugging Face Blog) - Score: 34",
+        " - [Rank 3] OpenAI Labs introduces advanced spatial reasoning systems to public audience (TechCrunch AI) - Score: 34",
+        "Drafting automated headline, script drafts, and slide layout formats using gemini-3.5-flash...",
+        "Compiling Voice-Over narration segments. Integrating background synthesizer loops...",
+        "Configuring portrait resolution grid (1080x1920) for reel layout formats...",
+        "Assembling dynamic subtitle overlays, text layers, and transition cues...",
+        "Rendering complete. Formulating custom video newsletters and page feed posts...",
+        "Initiating connection with connected Gmail OAuth pipeline...",
+        "Dispatched video summaries to registered subscriber endpoints...",
+        "Connecting to Facebook Graph API feed publisher gateway...",
+        "Automation pipeline completed successfully! Content distributed via Gmail & Facebook."
+      ],
+      "newsCollected": [
+        {
+          "id": "news-f-1782706049856-1",
+          "title": "Google DeepMind launches lightweight multimodal architecture to public audience",
+          "source": "VentureBeat Daily",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T17:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 7,
+          "industryImpact": 8,
+          "citations": 9,
+          "engagement": 9,
+          "totalScore": 33
+        },
+        {
+          "id": "news-f-1782706049856-2",
+          "title": "Anthropic AI supercharges code generation workflows to public audience",
+          "source": "Hugging Face Blog",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T03:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 9,
+          "industryImpact": 8,
+          "citations": 7,
+          "engagement": 10,
+          "totalScore": 34
+        },
+        {
+          "id": "news-f-1782706049856-3",
+          "title": "Meta Research accelerates neural engineering pipelines to public audience",
+          "source": "The Verge Tech",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T01:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 9,
+          "citations": 6,
+          "engagement": 10,
+          "totalScore": 33
+        },
+        {
+          "id": "news-f-1782706049856-4",
+          "title": "Mistral Premium reduces inference latency by seventy percent to public audience",
+          "source": "MIT Tech Review",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T18:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 10,
+          "industryImpact": 7,
+          "citations": 8,
+          "engagement": 8,
+          "totalScore": 33
+        },
+        {
+          "id": "news-f-1782706049856-5",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T03:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 10,
+          "industryImpact": 9,
+          "citations": 10,
+          "engagement": 6,
+          "totalScore": 35
+        },
+        {
+          "id": "news-f-1782706049856-6",
+          "title": "Google DeepMind launches lightweight multimodal architecture to public audience",
+          "source": "VentureBeat Daily",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T03:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 7,
+          "citations": 9,
+          "engagement": 6,
+          "totalScore": 30
+        },
+        {
+          "id": "news-f-1782706049856-7",
+          "title": "Anthropic AI supercharges code generation workflows to public audience",
+          "source": "Hugging Face Blog",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T20:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 9,
+          "citations": 7,
+          "engagement": 7,
+          "totalScore": 31
+        },
+        {
+          "id": "news-f-1782706049856-8",
+          "title": "Meta Research accelerates neural engineering pipelines to public audience",
+          "source": "The Verge Tech",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-28T19:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 10,
+          "citations": 7,
+          "engagement": 8,
+          "totalScore": 33
+        },
+        {
+          "id": "news-f-1782706049856-9",
+          "title": "Mistral Premium reduces inference latency by seventy percent to public audience",
+          "source": "MIT Tech Review",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T04:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 9,
+          "citations": 9,
+          "engagement": 6,
+          "totalScore": 32
+        },
+        {
+          "id": "news-f-1782706049856-10",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T04:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 7,
+          "citations": 9,
+          "engagement": 10,
+          "totalScore": 34
+        }
+      ],
+      "topSelected": [
+        {
+          "id": "news-f-1782706049856-5",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T03:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 10,
+          "industryImpact": 9,
+          "citations": 10,
+          "engagement": 6,
+          "totalScore": 35
+        },
+        {
+          "id": "news-f-1782706049856-2",
+          "title": "Anthropic AI supercharges code generation workflows to public audience",
+          "source": "Hugging Face Blog",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T03:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 9,
+          "industryImpact": 8,
+          "citations": 7,
+          "engagement": 10,
+          "totalScore": 34
+        },
+        {
+          "id": "news-f-1782706049856-10",
+          "title": "OpenAI Labs introduces advanced spatial reasoning systems to public audience",
+          "source": "TechCrunch AI",
+          "url": "https://news.ycombinator.com",
+          "publishedAt": "2026-06-29T04:07:29.856Z",
+          "summary": "In a major step forward, researchers published their newest development which streamlines neural parameter extraction. Benchmark tests reveal competitive margins over state-of-the-art models.",
+          "noveltyScore": 8,
+          "industryImpact": 7,
+          "citations": 9,
+          "engagement": 10,
+          "totalScore": 34
+        }
+      ],
+      "generatedContent": {
+        "headline": "Breaking AI Developments: Deep Reinforcement & Core Multi-Modal Breakthroughs",
+        "oneSentenceSummary": "Today features massive strides in open structural biology and conversational engine updates accelerating programmatic developer tools.",
+        "keyTakeaways": [
+          "New architecture delivers native latency optimization exceeding older developer bounds.",
+          "Leading laboratories fully open key parameters and weights to global research networks.",
+          "Ecosystem extensions expand cloud code environments right to operating systems."
+        ],
+        "scriptText": "Welcome to your Daily AI Update! Today, leading teams take core AI software forward. First, structural prediction gets a global acceleration boost as primary core protein prediction weights go completely open source, promising medical breakthroughs. Next, microsecond latency barriers fall as next-gen conversational endpoints launch, enabling hyper-realistic developer agent assistants. Lastly, rich artifact panels emerge natively on your desktop, blending AI reasoning right into local files. Which of these will rewrite your workflow? Give us a subscribe and share!",
+        "voiceVoice": "Zephyr",
+        "slides": [
+          {
+            "id": "s-f-1",
+            "title": "Structural Biology Open Source",
+            "subtitle": "Empowering global chemistry research blocks.",
+            "text": "High precision prediction formulas release weights to accelerate complex therapeutic developments and chemical formulas.",
+            "imageKeyword": "neon biological molecular grid cybernetic futuristic violet",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-f-2",
+            "title": "Conversational Interface Beta",
+            "subtitle": "Hyper-realistic split latency speeds.",
+            "text": "Developer portal integrates voice framework channels representing double digit speed advancements.",
+            "imageKeyword": "abstract neural node connectivity light lines tech",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=720"
+          },
+          {
+            "id": "s-f-3",
+            "title": "System Context Artifacts",
+            "subtitle": "Blending intelligence right into workspace files.",
+            "text": "Desktop platform delivers structural programming outputs straight into interactive coding previews.",
+            "imageKeyword": "cyberpunk computer monitor server coding setup glowing",
+            "imageFallbackUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=720"
+          }
+        ]
+      },
+      "thumbnailUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1280",
+      "videoUrl": "#",
+      "emailDistributed": true,
+      "fbPublished": true,
+      "analytics": {
+        "views": 1390,
+        "completionRate": 64.3,
+        "shares": 15,
+        "likes": 199,
+        "clicks": 66
       }
     }
   ]

@@ -94,7 +94,7 @@ const INITIAL_DB: LocalDatabase = {
     cron: '0 7 * * *',
     time: '07:00',
     enabled: false,
-    timezone: 'UTC'
+    timezone: 'Asia/Dhaka'
   },
   jobs: [
     {
@@ -273,7 +273,7 @@ function saveDB(data: LocalDatabase) {
   }
 }
 
-//@@@
+
 
 // Ensure database is initialized on file system
 if (!fs.existsSync(DB_FILE)) {
@@ -1429,13 +1429,13 @@ Please visit your Admin Dashboard to audit console logs and verify your setup co
 // Ensure first schedule calculations are in place on startup
 const db = loadDB();
 
-if (!db.scheduleConfig.nextRunAt) {
+// if (!db.scheduleConfig.nextRunAt) {
   db.scheduleConfig.nextRunAt = getNextRunDate(
     db.scheduleConfig.time,
     db.scheduleConfig.timezone
   ).toISOString();
   saveDB(db);
-}
+// }
 
 // if (!db.scheduleConfig.nextRunAt) {
 //   const tomorrow = new Date();
